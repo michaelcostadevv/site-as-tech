@@ -1,0 +1,5 @@
+# Capturas de tela de testes
+.playwright-mcp/
+
+# Foto original em alta (o site usa assets/fotos/beto.jpg)
+assets/fotos/beto-original.png
