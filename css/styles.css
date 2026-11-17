@@ -105,6 +105,7 @@ ol, ul { list-style: none; }
 .section-head--left { text-align: left; margin: 0; }
 .section-head--left .section-lead { margin-inline: 0; }
 .services .section-head--left { margin-bottom: clamp(40px, 5vw, 64px); max-width: 640px; }
+.section-note { margin-top: 16px; font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.6vw, 18px); color: var(--text); }
 
 /* ---------- Botões ---------- */
 .btn {
@@ -226,8 +227,8 @@ ol, ul { list-style: none; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(38px, 6vw, 70px);
-  line-height: 1.04;
+  font-size: clamp(36px, 5.2vw, 62px);
+  line-height: 1.06;
   letter-spacing: -0.035em;
   margin-top: 26px;
   text-wrap: balance;
@@ -237,7 +238,8 @@ ol, ul { list-style: none; }
   font-size: clamp(16px, 1.7vw, 19px); color: var(--text-2);
   text-wrap: pretty;
 }
-.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
+.hero__note { margin-top: 22px; font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.6vw, 18px); color: var(--text); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px; }
 .hero__facts {
   display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 44px;
   padding-top: 26px; border-top: 1px solid var(--line);
@@ -591,8 +593,9 @@ ol, ul { list-style: none; }
   .hero__title { order: 2; margin-top: 14px; }
   .hero__visual { order: 3; margin-top: 28px; }
   .hero__subtitle { order: 4; }
-  .hero__actions { order: 5; }
-  .hero__facts { order: 6; }
+  .hero__note { order: 5; }
+  .hero__actions { order: 6; }
+  .hero__facts { order: 7; }
   .hero__inner { gap: 0; }
   .device, .device.has-photo { width: 100%; aspect-ratio: 4 / 3; }
   .device.has-photo .device__photo { object-position: 0% 18%; border-radius: var(--radius-lg); }
