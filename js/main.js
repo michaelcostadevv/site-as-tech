@@ -48,6 +48,25 @@
       () => img.parentElement.remove());
   });
 
+  /* ---- Vídeos dos cards: tocam só quando o card está visível ---- */
+  const cardVideos = document.querySelectorAll('.service-card__media video');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    cardVideos.forEach((v) => v.remove());
+  } else {
+    cardVideos.forEach((v) => {
+      v.addEventListener('playing', () => v.classList.add('is-playing'));
+      v.addEventListener('error', () => v.remove());
+    });
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(({ target: v, isIntersecting }) => {
+        if (isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.35 });
+    cardVideos.forEach((v) => videoObserver.observe(v));
+  }
+
   /* ---- Ano no rodapé ---- */
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
