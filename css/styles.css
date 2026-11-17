@@ -304,7 +304,7 @@ ol, ul { list-style: none; }
 .service-card__media {
   position: relative;
   margin: -32px -28px 24px;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 5;
   display: grid; place-items: center;
   background:
     radial-gradient(circle at 50% 45%, rgba(47,123,255,.22), transparent 65%),
@@ -615,7 +615,7 @@ ol, ul { list-style: none; }
   .service-card { padding: 26px 22px; display: grid; grid-template-columns: auto 1fr; column-gap: 18px; }
   .service-card__icon { grid-row: span 3; margin-bottom: 0; width: 48px; height: 48px; }
   .service-card__cta { grid-column: 2; margin-top: 12px; }
-  .service-card__media { grid-column: 1 / -1; margin: -26px -22px 20px; }
+  .service-card__media { grid-column: 1 / -1; margin: -26px -22px 20px; aspect-ratio: 1 / 1; }
   .service-card h3 { font-size: 17px; margin-bottom: 6px; }
 
   .hero__actions { flex-direction: column; }
@@ -641,6 +641,10 @@ ol, ul { list-style: none; }
 }
 
 /* Vídeo curto do Instagram por cima da foto do card; aparece só quando começa a tocar */
+.service-card__media::after {
+  content: ""; position: absolute; inset: auto 0 0; height: 35%; z-index: 1; pointer-events: none;
+  background: linear-gradient(to top, rgba(10,12,18,.55), transparent);
+}
 .service-card__media video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   opacity: 0; transition: opacity .6s, transform .8s var(--ease);
