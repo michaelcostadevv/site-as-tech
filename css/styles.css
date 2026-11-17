@@ -19,6 +19,7 @@
   --blue-2: #4c94ff;
   --blue-deep: #1450d8;
   --blue-soft: rgba(47, 123, 255, 0.12);
+  --cyan: #35d6c9; /* cor da logo AS Tech */
   --wa: #25d366;
 
   --font-display: "Sora", system-ui, sans-serif;
@@ -171,12 +172,12 @@ ol, ul { list-style: none; }
 .brand__mark {
   width: 40px; height: 40px; border-radius: 50%;
   display: grid; place-items: center;
-  color: #fff;
-  filter: drop-shadow(0 0 10px rgba(76,148,255,.55));
+  color: var(--cyan);
+  filter: drop-shadow(0 0 10px rgba(53,214,201,.45));
 }
 .brand__mark svg { width: 40px; height: 40px; }
-.brand__name { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
-.brand__name span { color: var(--text-2); font-weight: 500; margin-left: 4px; }
+.brand__name { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: 0.04em; }
+.brand__name span { color: var(--cyan); font-weight: 600; margin-left: 5px; }
 
 .nav { display: flex; align-items: center; gap: 32px; }
 .nav__link { color: var(--text-2); font-size: 15px; font-weight: 500; transition: color .2s; position: relative; }
@@ -266,7 +267,7 @@ ol, ul { list-style: none; }
 .device.has-photo .device__svg { display: none; }
 /* Com a foto, a moldura mostra o letreiro AS Tech inteiro à esquerda e o técnico à direita */
 .device.has-photo { aspect-ratio: 4 / 5; }
-.device.has-photo .device__photo { inset: 0; left: 0; top: 0; width: 100%; height: 100%; object-position: 0% 0%; border-radius: var(--radius-xl); }
+.device.has-photo .device__photo { inset: 0; left: 0; top: 0; width: 100%; height: 100%; object-position: 50% 30%; border-radius: var(--radius-xl); }
 
 .layer--screen { animation: float-a 7s var(--ease) infinite alternate; transform-origin: center; }
 .layer--body { animation: float-b 7s var(--ease) infinite alternate; }
@@ -390,8 +391,9 @@ ol, ul { list-style: none; }
 .insta__avatar {
   width: 46px; height: 46px; border-radius: 50%;
   display: grid; place-items: center; color: #fff;
-  background: linear-gradient(145deg, var(--blue-2), var(--blue-deep));
-  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(76,148,255,.6);
+  color: var(--cyan);
+  background: #0a1626;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(53,214,201,.55);
 }
 .insta__avatar svg { width: 38px; height: 38px; stroke-width: 2.2; }
 .insta__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
@@ -598,7 +600,8 @@ ol, ul { list-style: none; }
   .hero__facts { order: 7; }
   .hero__inner { gap: 0; }
   .device, .device.has-photo { width: 100%; aspect-ratio: 4 / 3; }
-  .device.has-photo .device__photo { object-position: 0% 18%; border-radius: var(--radius-lg); }
+  .device.has-photo { aspect-ratio: 1 / 1; }
+  .device.has-photo .device__photo { object-position: 55% 45%; border-radius: var(--radius-lg); }
 
 
   .trust__inner { grid-template-columns: 1fr; }
