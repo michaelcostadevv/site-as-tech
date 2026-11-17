@@ -19,7 +19,7 @@
   --blue-2: #4c94ff;
   --blue-deep: #1450d8;
   --blue-soft: rgba(47, 123, 255, 0.12);
-  --cyan: #35d6c9; /* cor da logo AS Tech */
+  --cyan: #22d3e6; /* cor da logo AS Tech */
   --wa: #25d366;
 
   --font-display: "Sora", system-ui, sans-serif;
@@ -173,11 +173,10 @@ ol, ul { list-style: none; }
   width: 40px; height: 40px; border-radius: 50%;
   display: grid; place-items: center;
   color: var(--cyan);
-  filter: drop-shadow(0 0 10px rgba(53,214,201,.45));
+  filter: drop-shadow(0 0 10px rgba(34,211,230,.45));
 }
 .brand__mark svg { width: 40px; height: 40px; }
-.brand__name { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: 0.04em; }
-.brand__name span { color: var(--cyan); font-weight: 600; margin-left: 5px; }
+.brand__name { display: block; height: 26px; width: auto; }
 
 .nav { display: flex; align-items: center; gap: 32px; }
 .nav__link { color: var(--text-2); font-size: 15px; font-weight: 500; transition: color .2s; position: relative; }
@@ -392,8 +391,8 @@ ol, ul { list-style: none; }
   width: 46px; height: 46px; border-radius: 50%;
   display: grid; place-items: center; color: #fff;
   color: var(--cyan);
-  background: #0a1626;
-  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(53,214,201,.55);
+  background: #020f1f;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(34,211,230,.55);
 }
 .insta__avatar svg { width: 38px; height: 38px; stroke-width: 2.2; }
 .insta__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
