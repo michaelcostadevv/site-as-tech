@@ -42,7 +42,10 @@
       () => heroPhoto.remove());
   }
   document.querySelectorAll('.service-card__media img').forEach((img) => {
-    whenLoaded(img, () => img.classList.add('is-loaded'), () => img.remove());
+    // A área de foto fica escondida até a imagem carregar; sem arquivo, o card segue compacto
+    whenLoaded(img,
+      () => { img.classList.add('is-loaded'); img.parentElement.classList.add('has-photo'); },
+      () => img.parentElement.remove());
   });
 
   /* ---- Ano no rodapé ---- */
@@ -73,38 +76,4 @@
   nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
   window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
-
-  /* ---- Revelação suave ao rolar ---- */
-  const reveals = document.querySelectorAll('.reveal');
-  // Escalonamento entre elementos irmãos
-  reveals.forEach((el) => {
-    const siblings = [...el.parentElement.children].filter((c) => c.classList.contains('reveal'));
-    const i = siblings.indexOf(el);
-    if (i > 0) el.style.setProperty('--delay', `${Math.min(i * 0.08, 0.4)}s`);
-  });
-
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach((el) => io.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add('is-in'));
-  }
-
-  /* ---- Brilho que acompanha o cursor nos cards ---- */
-  if (window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.service-card').forEach((card) => {
-      card.addEventListener('pointermove', (e) => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
-        card.style.setProperty('--my', `${e.clientY - r.top}px`);
-      });
-    });
-  }
 })();
